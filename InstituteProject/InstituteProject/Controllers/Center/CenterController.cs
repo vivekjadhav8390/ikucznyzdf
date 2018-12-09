@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InstituteProject.App_Code;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,9 +14,33 @@ namespace InstituteProject.Controllers.Center
         {
             return View();
         }
+
         public ActionResult CenterLogin()
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult CenterLogin(string loginusername, string loginpassword)
+        {
+            if (loginusername != "" || loginpassword != "")
+            {
+                if (loginusername == "center" && loginpassword == "center")
+                {
+                    return RedirectToAction("Index", "Center");
+                }
+                else
+                {
+                    ViewBag.Error = clsCommon.InvalidLoginError;
+                    return View();
+                }
+            }
+            else
+            {
+                ViewBag.Error = clsCommon.BlankLoginError;
+                return View();
+            }
+        }
+
     }
 }
