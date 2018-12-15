@@ -162,6 +162,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\clsCommon.cs" />
+    <Compile Include="App_Code\clsDAL.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -176,9 +178,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -229,9 +239,12 @@
     <Content Include="Content\Login\images\wood_pattern.jpg" />
     <Content Include="Content\Login\js\jquery.placeholder.min.js" />
     <Content Include="Content\Login\js\modernizr.custom.63321.js" />
+    <Content Include="Database\Scripts\Create Database.sql" />
+    <Content Include="Database\Stored Procedures\[dbo].[Institute_UserLogin].sql" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="index.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\assets\css\ready.css.map" />
@@ -275,6 +288,7 @@
     <Content Include="Content\Login\font\fontawesome-webfont.ttf" />
     <Content Include="Content\Login\font\fontawesome-webfont.woff" />
     <Content Include="Content\Login\images\.DS_Store" />
+    <None Include="Properties\PublishProfiles\PublishInstitute.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -334,6 +348,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Database\Functions\" />
+    <Folder Include="Database\Triggers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
