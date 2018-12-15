@@ -1,4 +1,5 @@
 ﻿using InstituteProject.App_Code;
+using InstituteProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +24,11 @@ namespace InstituteProject.Controllers.Admin
         {
             if (loginusername != "" || loginpassword != "")
             {
-                if (loginusername == "admin" && loginpassword == "admin")
+                clsCommon comm = new clsCommon();
+                UserModel user = comm.UserLogin(loginusername, loginpassword);
+                if (user != null)
                 {
-                    //return View("Index");
+                    Session[clsCommon.enmSessions.SessionLoggedInUser.ToString()] = user;
                     return RedirectToAction("Index", "Admin");
                 }
                 else

@@ -23,8 +23,8 @@ CREATE procedure [dbo].[Institute_UserLogin]
 )
 as 
 BEGIN
-	SELECT *,ut.Description FROM Users u
-	INNER JOIN UserTypes ut on ut.ID = u.UserType 
+	SELECT u.*,ut.Description as UserTypeDesc FROM Users u
+	INNER JOIN UsersTypes ut on ut.ID = u.UserType 
 	WHERE UserName = @UserName and Password = @Password;
 
 

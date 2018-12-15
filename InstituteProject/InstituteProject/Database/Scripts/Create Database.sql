@@ -18,12 +18,12 @@ IF NOT EXISTS(SELECT 1 FROM UsersTypes WHERE Description='Admin')
 BEGIN
 	INSERT INTO UsersTypes VALUES('Admin')
 END
-IF NOT EXISTS(SELECT 1 FROM Users WHERE Description='Center')
+IF NOT EXISTS(SELECT 1 FROM UsersTypes WHERE Description='Center')
 BEGIN
 	INSERT INTO UsersTypes VALUES('Center')
 END
 
-IF NOT EXISTS(SELECT 1 FROM Users WHERE Description='Student')
+IF NOT EXISTS(SELECT 1 FROM UsersTypes WHERE Description='Student')
 BEGIN
 	INSERT INTO UsersTypes VALUES('Student')
 END
@@ -35,11 +35,18 @@ CREATE TABLE Users
 	UserName			VARCHAR(100),
 	Password			VARCHAR(100),
 	EmailAddress		VARCHAR(100),
+	IsActive			BIT,
 	Created_Date		DATETIME,
 	Created_By			INT,
 	Edited_Date			DATETIME,
 	Edited_By			INT	
 )
+IF NOT EXISTS (SELECT * FROM Users WHERE UserName ='admin')
+BEGIN
+	INSERT INTO Users(UserType,UserName,Password,EmailAddress,Created_Date,Created_By)
+	VALUES(1,'admin','institute','vivekjadhav8390@gmail.com',CURRENT_TIMESTAMP,0)
+END
+
 --------------------------------------------------------------------
 CREATE TABLE Student 
 (
@@ -68,6 +75,8 @@ CREATE TABLE Center
 	ContactNo			VARCHAR(100),
 	OfficeNo			VARCHAR(100),
 	Address				VARCHAR(1000),
+	InstituteOrSchool	VARCHAR(1000),
+	NoOfSeats			INT,
 	IsApproved			BIT,
 	IsActive			BIT,
 	Created_Date		DATETIME,
