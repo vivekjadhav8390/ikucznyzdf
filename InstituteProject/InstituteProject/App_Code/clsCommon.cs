@@ -12,6 +12,8 @@ namespace InstituteProject.App_Code
     {
         public static string InvalidLoginError = "Invalid username and password.";
         public static string BlankLoginError = "Please enter credentials.";
+        public static string NotMatchingPassword = "Not mathcing confirm password.";
+        public static string PleaseEnterPassword = "Please enter password";
 
 
         public enum enmSessions
@@ -19,7 +21,7 @@ namespace InstituteProject.App_Code
             SessionLoggedInUser
         }
         #region Validations
-        public bool HasValue(string value)
+        public static bool HasValue(string value)
         {
             if (value.ToString().Trim().Length > 0)
             {
@@ -27,7 +29,7 @@ namespace InstituteProject.App_Code
             }
             return false;
         }
-        public bool IsNotEmptyDataSet(DataSet ds)
+        public static bool IsNotEmptyDataSet(DataSet ds)
         {
             if (ds != null)
             {
@@ -39,7 +41,7 @@ namespace InstituteProject.App_Code
             return false;
         }
 
-        public bool IsNotEmptyDataTable(DataTable dt)
+        public static bool IsNotEmptyDataTable(DataTable dt)
         {
             if (dt != null)
             {

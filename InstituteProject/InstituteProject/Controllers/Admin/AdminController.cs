@@ -43,6 +43,43 @@ namespace InstituteProject.Controllers.Admin
                 return View();
             }
         }
+        public ActionResult ChangePassword()
+        {
+            return RedirectToAction("Changepassword", "Admin");
+        }
+        [HttpPost]
+        public ActionResult ChangePassword(string newpassword, string confirmpassword)
+        {
+            if (newpassword != "" || confirmpassword != "")
+            {
+                if (newpassword != confirmpassword)
+                {
+                    ViewBag.Error = clsCommon.NotMatchingPassword;
+                    return View();
+                }
+                else
+                {
+                    UserModel u = (UserModel)Session[clsCommon.enmSessions.SessionLoggedInUser.ToString()];
+                    clsCommon comm = new clsCommon();
+                    UserModel user = comm.ChangePassword(u, newpassword);
+                    if (user != null)
+                    {
+                        Session[clsCommon.enmSessions.SessionLoggedInUser.ToString()] = user;
+                        return RedirectToAction("Index", "Admin");
+                    }
+                    else
+                    {
+                        ViewBag.Error = clsCommon.InvalidLoginError;
+                        return View("StudentLogin", "Admin");
+                    }
+                }
+            }
+            else
+            {
+                ViewBag.Error = clsCommon.PleaseEnterPassword;
+                return View();
+            }
+        }
 
     }
 }
