@@ -20,6 +20,11 @@ namespace InstituteProject.Controllers.Center
             return View();
         }
 
+        public ActionResult Register()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult CenterLogin(string loginusername, string loginpassword)
         {

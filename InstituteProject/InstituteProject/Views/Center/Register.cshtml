@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "CenterRegister";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+
+}
+<div class="container">
+    <section class="main">
+        <form class="form-2 widthform" method="post">
+            <h1><span class="log-in">Registration Form</span></h1>
+            @if (ViewBag.Error != null)
+            {
+                if (ViewBag.Error.Trim().Length > 0)
+                {
+                    <span style="color:red">@ViewBag.Error</span>
+                }
+            }
+            <p class="float">
+                <label for="login"><i class="icon-user"></i>Username</label>
+                <input type="text" name="loginusername" id="loginusername" placeholder="Username">
+            </p>
+
+            <p class="float">
+                <label for="login"><i class="icon-user"></i>Institute Name</label>
+                <input type="text" name="loginusername" id="loginusername" placeholder="Full Name">
+            </p>
+
+            <p class="float">
+                <label for="login"><i class="icon-user"></i>Address</label>
+                <input type="text" name="loginusername" id="loginusername" placeholder="Address">
+            </p>
+
+            <p class="float">
+                <label for="login"><i class="icon-user"></i>Institute or school</label>
+                <input type="text" name="loginusername" id="loginusername" placeholder="Institute or school">
+            </p>
+
+            <p class="float">
+                <label for="login"><i class="icon-user"></i>Contact Person</label>
+                <input type="text" name="loginusername" id="loginusername" placeholder="Contact Person">
+            </p>
+
+            <p class="float">
+                <label for="login"><i class="icon-user"></i>Number of Seats for Exam</label>
+                <input type="text" name="loginusername" id="loginusername" placeholder="Number of Seats for Exam">
+            </p>
+
+            <p class="clearfix center">
+                <input type="submit" name="submit" value="Register">
+            </p>
+        </form>
+    </section>
+</div>
