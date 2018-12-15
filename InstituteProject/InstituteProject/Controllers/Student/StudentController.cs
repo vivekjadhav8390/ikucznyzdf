@@ -19,6 +19,10 @@ namespace InstituteProject.Controllers.Student
         {
             return View();
         }
+        public ActionResult Register()
+        {
+            return View();
+        }
 
         [HttpPost]
         public ActionResult StudentLogin(string loginusername, string loginpassword)
